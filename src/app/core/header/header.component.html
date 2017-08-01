@@ -6,7 +6,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-      </button>
+      </button>    
       <a routerLink="/" class="navbar-brand">Recipe Book</a>
     </div>
 
@@ -16,7 +16,7 @@
         <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <ng-template [ngIf]="!authService.isAuthenticated()">
+        <ng-template [ngIf]="!isAuthenticated()">
           <li><a routerLink="/signup">Register</a></li>
           <li><a routerLink="/signin">Login</a></li>
         </ng-template>
@@ -24,9 +24,9 @@
         <li><a
           style="cursor: pointer;"
           (click)="onLogout()"
-          *ngIf="authService.isAuthenticated()">Logout</a></li>
+          *ngIf="isAuthenticated()">Logout</a></li>
 
-        <li class="dropdown" appDropdown *ngIf="authService.isAuthenticated()">
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated()">
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
